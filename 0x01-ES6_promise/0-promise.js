@@ -1,7 +1,8 @@
 function getResponseFromAPI() {
   return new Promise((resolve, reject) => {
+    
     setTimeout(() => {
-      resolve("mock api response");
+      resolve("Mock API response");
     }, 1000);
   });
 }
