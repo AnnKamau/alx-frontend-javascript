@@ -6,7 +6,7 @@ export default class Car {
     this._motor = motor;
     this._color = color;
   }
-  
+
   cloneCar() {
     const clonedCar = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
     clonedCar[carSymbol] = true;
