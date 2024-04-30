@@ -1,15 +1,15 @@
-function updateUniqueItems(groceries) {
-  if (!(groceries instanceof Map)) {
-    throw new Error('Cannot process');
-  }
-
-  const updatedGroceries = new Map(groceries);
-
-  for (let [item, quantity] of updatedGroceries) {
-    if (quantity === 1) {
-      updatedGroceries.set(item, 100);
+function updateUniqueItems(map) {
+    if (!(map instanceof Map)) {
+        throw new Error('Cannot process');
     }
-  }
 
-  return updatedGroceries;
+    for (let [item, quantity] of map.entries()) {
+        if (quantity === 1) {
+            map.set(item, 100);
+        }
+    }
+
+    return map;
 }
+
+export default updateUniqueItems;
