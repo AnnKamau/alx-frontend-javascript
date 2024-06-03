@@ -1,9 +1,8 @@
-export default class Building {
+class Building {
   constructor(sqft) {
-    if (this.constructor === Building) {
-      throw new Error('Abstract classes can\'t be instantiated.');
+    if (new.target === Building) {
+      throw new TypeError('Cannot construct Building instances directly');
     }
-
     this._sqft = sqft;
   }
 
@@ -15,3 +14,5 @@ export default class Building {
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
+
+export default Building;
