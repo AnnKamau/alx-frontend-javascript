@@ -1,14 +1,8 @@
-export default function guardrail(mathFunction) {
-  const queue = [];
-  
-  try {
-    const result = mathFunction();
-    queue.push(result);
-  } catch (error) {
-    queue.push(error.message);
-  } finally {
-    queue.push('Guardrail was processed');
-  }
+// 9-try.js
 
-  return queue;
+export default function divideFunction(num1, num2) {
+    if (num2 === 0) {
+        throw new Error('cannot divide by 0');
+    }
+    return num1 / num2;
 }
