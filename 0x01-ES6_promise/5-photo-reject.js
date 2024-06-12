@@ -1,3 +1,5 @@
-export default function uploadPhoto(filename) {
-  return Promise.reject(new Error(`${fileName} cannot be processed`));
+// 5-photo-reject.js
+
+export default function uploadPhoto(fileName) {
+    return Promise.reject(new Error(`${fileName} cannot be processed`));
 }
