@@ -1,5 +1,4 @@
-// 4-pricing.js
-import Currency from './3-currency.js';
+import Currency from './3-currency';
 
 export default class Pricing {
   constructor(amount, currency) {
@@ -11,32 +10,23 @@ export default class Pricing {
     return this._amount;
   }
 
-  set amount(value) {
-    if (typeof value !== 'number') {
-      throw new TypeError('Amount must be a number');
-    }
-    this._amount = value;
-  }
-
   get currency() {
     return this._currency;
   }
 
-  set currency(value) {
-    if (!(value instanceof Currency)) {
-      throw new TypeError('Currency must be an instance of the Currency class');
-    }
-    this._currency = value;
+  set amount(amount) {
+    this._amount = amount;
+  }
+
+  set currency(currency) {
+    this._currency = currency;
   }
 
   displayFullPrice() {
-    return `${this.amount} ${this.currency.displayFullCurrency()}`;
+    return `${this._amount} ${new Currency(this._currency.code, this._currency.name).displayFullCurrency()}`;
   }
 
   static convertPrice(amount, conversionRate) {
-    if (typeof amount !== 'number' || typeof conversionRate !== 'number') {
-      throw new TypeError('Amount and conversion rate must be numbers');
-    }
     return amount * conversionRate;
   }
 }
